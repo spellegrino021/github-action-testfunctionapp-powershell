@@ -1,4 +1,7 @@
-name: Build and deploy Powershell project to Azure Function App - stpelleg-linux-4
+# Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy Powershell project to Azure Function App - stpelleg-powershell
 
 on:
   push:
@@ -7,20 +10,20 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository roots
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
-      - name: 'Checkout GitHub Actions'
+      - name: 'Checkout GitHub Action'
         uses: actions/checkout@v2
 
       - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
         id: fa
         with:
-          app-name: 'stpelleg-linux-4'
+          app-name: 'stpelleg-powershell'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.PUBLISHINGPROFILE1 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2FE766A82D5D4DADAB58E2E49A52036D }}
