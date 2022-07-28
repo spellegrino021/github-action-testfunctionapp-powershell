@@ -16,7 +16,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout GitHub Action'
+      - name: 'Checkout GitHub Actions'
         uses: actions/checkout@v2
 
       - name: 'Run Azure Functions Action'
